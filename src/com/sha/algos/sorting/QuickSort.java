@@ -8,12 +8,12 @@ public class QuickSort {
 		int[] input = { 45, 23, 11, 89, 2, 77, 98, 13, 28, 65, 43 };
 		sorter.sort(input);
 		for (int i : input) {
-			System.out.println(i + " ");
+			System.out.print(i + " ");
 		}
 	}
 
 	private void sort(int[] input) {
-		if (input == null && input.length == 0) {
+		if (input == null || input.length == 0) {
 			return;
 		}
 		this.array = input;
@@ -39,5 +39,18 @@ public class QuickSort {
 				j--;
 			}
 		}
+		
+		if (low < j) {
+			quickSort(low, j);
+		}
+		if (i <high) {
+			quickSort(i, high);
+		}
+	}
+
+	private void exchange(int i, int j) {
+		int temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
 	}
 }
